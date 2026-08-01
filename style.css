@@ -1,0 +1,113 @@
+/* Thiết lập tổng quan và Sticky Footer */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Extra: Sticky Footer setup */
+}
+
+main {
+    flex: 1; /* Đẩy footer xuống đáy khi nội dung ngắn */
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #4A3525;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover, nav a:focus {
+    text-decoration: underline;
+    color: #ffbb55; /* Đảm bảo độ tương phản cho Accessibility */
+}
+
+footer {
+    background-color: #332211;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Thư viện ảnh (ít nhất 4 ảnh) */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Bảng hiển thị (Third View Layout) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4A3525;
+    color: white;
+}
+
+/* RESPONSIVE: Đảm bảo có ít nhất 3 View độc lập dựa trên kích thước màn hình */
+/* View 1: Mobile (Mặc định nhỏ hơn 600px) */
+@media screen and (max-width: 599px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* 1 cột trên mobile */
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* View 2: Tablet (Từ 600px đến 900px) */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột trên tablet */
+    }
+    body {
+        background-color: #f0eae1; /* Thay đổi nhẹ nhận diện view tablet */
+    }
+}
+
+/* View 3: Desktop (Lớn hơn 900px) */
+@media screen and (min-width: 901px) {
+    .image-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 cột trên desktop rộng */
+    }
+}
